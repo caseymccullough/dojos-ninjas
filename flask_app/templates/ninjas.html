@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+   <title>Ninjas</title>
+</head>
+<body>
+   <h1>Ninjas</h1>
+   <div class="shared-row">
+      <!-- Table Showing All Ninjas -->
+      <div class="col-8 mx-auto">
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Dojo</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for one_ninja in all_ninjas %}
+                  <tr>
+                     <td><a href="/ninjas/{{one_ninja.id}}">{{one_ninja.first_name}} {{one_ninja.last_name}}</a></td>
+                     <td>{{one_ninja.age}}</td>
+                     <td><a href="/dojos/{{one_ninja.dojo_id}}">{{one_ninja.dojo}} </a></td>
+                  </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+
+      <!-- Form to Create New Ninja -->
+      <form action="/create/ninja" method="post" class="col-6 p-3 bg-dark text-light">
+         <h2 class="text-center text-primary">New Ninja</h2>
+         <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control">
+         </div>
+         <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control">
+         </div>
+         <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" name="age" class="form-control">
+         </div>
+         <div class="form-group">
+            <label for="dojo_id">Dojo ID</label>
+            <input type="number" name="dojo_id" class="form-control">
+         </div>
+         <input type="submit" value="Add Ninja" class="btn btn-primary">
+      </form>
+   </div>
+   <a href="/dojos" class="btn btn-primary"> Back to Dojos</a>
+
+</body>
+</html>

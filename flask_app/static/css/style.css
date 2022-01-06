@@ -1,0 +1,11 @@
+
+body{
+   background-color: rgb(82, 144, 225);
+}
+
+.shared-row{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   border: 1px black solid;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+   <title>Single Dojo</title>
+</head>
+<body>
+   <h1>Dojo Info</h1>
+
+   <h3>{{dojo}}</h3>
+   <h3>Dojo Since {{dojo.created_at.strftime("%B %d, %Y") }}</h3>
+   
+   <a href="/dojos" class="btn btn-primary"> Back to Dojos</a>
+</body>
+</html>
