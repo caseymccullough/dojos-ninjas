@@ -1,10 +1,11 @@
 from flask_app import app
 from flask import render_template, request, redirect
 from ..models.ninja import Ninja
+from ..models.dojo import Dojo
 
 @app.route('/ninjas')
 def ninjas():
-   return render_template("ninjas.html", all_ninjas = Ninja.get_all())
+   return render_template("ninjas.html", all_ninjas = Ninja.get_all(), all_dojos = Dojo.get_all())
 
 @app.route('/ninjas/<int:id>')
 def show_ninja(id):
