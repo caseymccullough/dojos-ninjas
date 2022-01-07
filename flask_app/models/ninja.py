@@ -23,12 +23,18 @@ class Ninja:
       ninjas =[]
       for n in ninjas_from_db:     
          ninjas.append(n)
-
       return ninjas
 
    @classmethod
+   def get_by_id(cls, data):
+      query = "SELECT * FROM ninjas WHERE id = %(id)s;"
+      results = connectToMySQL('dojos_and_ninjas').query_db(query, data)
+      ninja = cls(results[0])
+      return ninja
+
+   @classmethod
    def get_dojo_ninjas(cls, data):
-      query = """ SELECT ninjas.first_name, ninjas.last_name, ninjas.age
+      query = """ SELECT ninjas.id, ninjas.first_name, ninjas.last_name, ninjas.age
                   FROM ninjas
                   WHERE ninjas.dojo_id = %(id)s;
                """

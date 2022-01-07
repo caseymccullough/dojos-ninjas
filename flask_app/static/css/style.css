@@ -1,6 +1,7 @@
 
 body{
    background-color: rgb(82, 144, 225);
+   margin: 50px;
 }
 
 .shared-row{
@@ -8,4 +9,11 @@ body{
    flex-direction: row;
    justify-content: space-between;
    border: 1px black solid;
+}
+
+.center{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: green;
 }

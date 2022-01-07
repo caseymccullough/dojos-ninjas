@@ -27,3 +27,11 @@ def create_dojo():
    }
    user_id = Dojo.save(data)
    return redirect('/')
+
+@app.route('/dojos/<int:id>/delete')
+def delete_dojo(id):
+   data = {
+      "id": id
+   }
+   dojo = Dojo.delete(data)
+   return redirect('/')

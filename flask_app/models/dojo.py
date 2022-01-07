@@ -27,6 +27,17 @@ class Dojo:
       print (results) 
       dojo = cls(results[0])
       return dojo
+
+   @classmethod
+   def delete(cls, data):
+      ninja_query = "DELETE FROM ninjas WHERE dojo_id = %(id)s;"
+      dojo_query = "DELETE FROM dojos WHERE id = %(id)s;"
+      ninja_results = connectToMySQL('dojos_and_ninjas').query_db(ninja_query, data)
+      dojo_results = connectToMySQL('dojos_and_ninjas').query_db(dojo_query, data)
+      print("Deleted: ")
+      print (ninja_results)
+      print (dojo_results)
+      return dojo_results
    
    @classmethod
    def save(cls, data):
